@@ -1,9 +1,10 @@
-import { ButtonHTMLAttributes, forwardRef } from "react";
+import { forwardRef, type ReactNode } from "react";
 import { motion, type HTMLMotionProps } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-type GlowButtonProps = Omit<HTMLMotionProps<"button">, "ref"> & {
+type GlowButtonProps = Omit<HTMLMotionProps<"button">, "ref" | "children"> & {
   variant?: "primary" | "ghost";
+  children?: ReactNode;
 };
 
 export const GlowButton = forwardRef<HTMLButtonElement, GlowButtonProps>(
