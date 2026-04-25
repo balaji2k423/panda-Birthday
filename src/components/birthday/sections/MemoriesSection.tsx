@@ -67,7 +67,7 @@ const CARDS: Card[] = [
     photo: "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&q=80",
   },
   {
-  tag: "vibes",
+  tag: "vibes2",  // ← was "vibes", must be unique
   caption: "The one who just gets it",
   sub: "always on the same wavelength",
   shimmer: "#f9a8d4",
@@ -281,28 +281,27 @@ export const MemoriesSection = ({ onNext, onBack }: Props) => {
 
             return (
               <motion.div key={card.tag}
-                animate={{
-                  x: gone ? "-115%" : peek.x, y: gone ? 0 : peek.y,
-                  scale: gone ? 0.9 : peek.scale, rotate: gone ? -10 : peek.rotate,
-                  opacity: gone ? 0 : peek.opacity, zIndex: gone ? 0 : peek.z,
-                }}
-                transition={{ type: "spring", stiffness: 260, damping: 28 }}
-                style={{
-                  position: "absolute", inset: 0, borderRadius: 30, overflow: "hidden",
-                  userSelect: "none",
-                  boxShadow: isTop
-                    ? "0 32px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.06)"
-                    : "0 12px 40px rgba(0,0,0,0.3)",
-                  pointerEvents: isTop ? "auto" : "none",
-                  cursor: isTop ? "grab" : "default",
-                }}
-                onPointerDown={(e) => { startX.current = e.clientX; startY.current = e.clientY; }}
-                onPointerUp={(e) => {
-                  const dx = e.clientX - startX.current;
-                  const dy = Math.abs(e.clientY - startY.current);
-                  if (Math.abs(dx) > 45 && Math.abs(dx) > dy) goTo(dx < 0 ? cur + 1 : cur - 1);
-                }}
-              >
+  animate={{ ... }}
+  transition={{ ... }}
+  style={{
+    position: "absolute", inset: 0, borderRadius: 30, overflow: "hidden",
+    userSelect: "none",
+    touchAction: "none",  // ← ADD THIS
+    boxShadow: isTop ? "..." : "...",
+    pointerEvents: isTop ? "auto" : "none",
+    cursor: isTop ? "grab" : "default",
+  }}
+  onPointerDown={(e) => {
+    e.currentTarget.setPointerCapture(e.pointerId);  // ← ADD THIS
+    startX.current = e.clientX;
+    startY.current = e.clientY;
+  }}
+  onPointerUp={(e) => {
+    const dx = e.clientX - startX.current;
+    const dy = Math.abs(e.clientY - startY.current);
+    if (Math.abs(dx) > 45 && Math.abs(dx) > dy) goTo(dx < 0 ? cur + 1 : cur - 1);
+  }}
+>
                 {/* Face */}
                 {card.type === "photo" && <PhotoFace card={card} isTop={isTop} />}
                 {card.type === "chat"  && <ChatFace  card={card} />}
