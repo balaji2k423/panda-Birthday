@@ -12,7 +12,8 @@
     /* Romantic dark base — used app-wide */
     --background: 280 50% 8%;
     --foreground: 330 60% 96%;
-
+top: 50%; left: 50%;
+transform: rotate(Xdeg) translateY(-74px) translate(-50%, -50%);
     --card: 285 45% 12%;
     --card-foreground: 330 60% 96%;
 
@@ -189,3 +190,5 @@
   .animate-flicker { animation: flicker 0.18s infinite; transform-origin: 50% 100%; }
   .animate-heart-pulse { animation: heart-pulse 2.4s ease-in-out infinite; }
 }
+
+
