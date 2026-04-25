@@ -42,7 +42,7 @@ export const FinalSection = ({ onReplay, onBack }: Props) => {
           lines={[
             "No matter what I am to you…",
             "I'll always wish you happiness",
-            "Keep smiling, Deva Darshini ✨",
+            "Keep smiling, Deva 🐼 ✨",
             "Once again, Happy Birthday ❤️",
           ]}
           speed={48}

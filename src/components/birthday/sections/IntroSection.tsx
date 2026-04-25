@@ -81,7 +81,7 @@ export const IntroSection = ({ onNext }: Props) => {
           className="w-full rounded-2xl border border-rose-400/20 bg-white/5 p-5 backdrop-blur-md"
         >
           <p className="mb-1 text-[10px] uppercase tracking-widest text-foreground/40">
-            You have been alive for
+            You’ve come a long way in 21 years. Wishing you peace, happiness, and more good days ahead.
           </p>
           <p className="font-serif text-6xl text-foreground text-glow-rose">{years}</p>
           <p className="mb-4 text-xs text-foreground/40">
@@ -107,7 +107,7 @@ export const IntroSection = ({ onNext }: Props) => {
         <motion.div variants={item} className="w-full px-1 text-center">
           <span className="font-serif text-5xl leading-none text-rose-400/30">"</span>
           <p className="font-serif text-base italic leading-relaxed text-foreground/80 -mt-3">
-            She was born with a heart full of stars — and the world has been brighter ever since.
+          You were born with a heart full of stars — and the world has been brighter ever since.
           </p>
           <p className="mt-2 text-[11px] uppercase tracking-wider text-foreground/30">
             — written for you, today
